@@ -4,8 +4,8 @@ import { IProductDetail } from './validation/interfaze-product';
 import { ClientValidator } from './validation/validator-client';
 import { ProductValidator } from './validation/validator-product';
 const router: Router = Router();
-const clientValidator=new ClientValidator()
-const productValidator=new ProductValidator(undefined)
+const clientValidator=new ClientValidator('SERVER')
+const productValidator=new ProductValidator(undefined,'SERVER')
 router.post('/rootCreateBizClient', (req: Request, res: Response) => {
     res.send(clientValidator.validate(req.body as IClient,'CREATE'));
 });
