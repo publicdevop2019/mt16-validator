@@ -6,10 +6,10 @@ import { ProductValidator } from './validation/validator-product';
 const router: Router = Router();
 const clientValidator=new ClientValidator('SERVER')
 const productValidator=new ProductValidator(undefined,'SERVER')
-router.post('/rootCreateBizClient', (req: Request, res: Response) => {
+router.post('/rootCreateBizClientCommand', (req: Request, res: Response) => {
     res.send(clientValidator.validate(req.body as IClient,'CREATE'));
 });
-router.post('/rootUpdateBizClient', (req: Request, res: Response) => {
+router.post('/rootUpdateBizClientCommand', (req: Request, res: Response) => {
     res.send(clientValidator.validate(req.body as IClient,'UPDATE'));
 });
 router.post('/adminCreateProduct', (req: Request, res: Response) => {
