@@ -21,57 +21,57 @@ const endpointValidator = new EndpointValidator('SERVER')
 const filterValidator = new FilterValidator('SERVER')
 const userValidator = new UserValidator('SERVER')
 router.post('/rootCreateBizClientCommand', (req: Request, res: Response) => {
-    res.send(clientValidator.validate(req.body, 'CREATE'));
+    res.send(clientValidator.validate(req.body, 'rootCreateClientCommandValidator'));
 });
 router.post('/rootUpdateBizClientCommand', (req: Request, res: Response) => {
-    res.send(clientValidator.validate(req.body, 'UPDATE'));
+    res.send(clientValidator.validate(req.body, 'rootUpdateClientCommandValidator'));
 });
 router.post('/adminCreateProductCommand', (req: Request, res: Response) => {
-    res.send(productValidator.validate(req.body, 'CREATE'));
+    res.send(productValidator.validate(req.body, 'adminCreateProductCommandValidator'));
 });
 router.post('/adminUpdateProductCommand', (req: Request, res: Response) => {
-    res.send(productValidator.validate(req.body, 'UPDATE'));
+    res.send(productValidator.validate(req.body, 'adminUpdateProductCommandValidator'));
 });
 router.post('/adminCreateTagCommand', (req: Request, res: Response) => {
-    res.send(tagValidator.validate(req.body, 'CREATE'));
+    res.send(tagValidator.validate(req.body, 'adminCreateAttributeCommandValidator'));
 });
 router.post('/adminUpdateTagCommand', (req: Request, res: Response) => {
-    res.send(tagValidator.validate(req.body, 'UPDATE'));
+    res.send(tagValidator.validate(req.body, 'adminUpdateAttributeCommandValidator'));
 });
 router.post('/adminCreateCatalogCommand', (req: Request, res: Response) => {
-    res.send(catalogValidator.validate(req.body, 'CREATE'));
+    res.send(catalogValidator.validate(req.body, 'adminCreateCatalogCommandValidator'));
 });
 router.post('/adminUpdateCatalogCommand', (req: Request, res: Response) => {
-    res.send(catalogValidator.validate(req.body, 'UPDATE'));
+    res.send(catalogValidator.validate(req.body, 'adminUpdateCatalogCommandValidator'));
 });
 router.post('/rootCreateBizEndpointCommand', (req: Request, res: Response) => {
-    res.send(endpointValidator.validate(req.body, 'CREATE'));
+    res.send(endpointValidator.validate(req.body, 'rootCreateEndpointCommandValidator'));
 });
 router.post('/rootUpdateBizEndpointCommand', (req: Request, res: Response) => {
-    res.send(endpointValidator.validate(req.body, 'UPDATE'));
+    res.send(endpointValidator.validate(req.body, 'rootUpdateEndpointCommandValidator'));
 });
 router.post('/adminCreateFilterCommand', (req: Request, res: Response) => {
-    res.send(filterValidator.validate(req.body, 'CREATE'));
+    res.send(filterValidator.validate(req.body, 'adminCreateFilterCommandValidator'));
 });
 router.post('/adminUpdateFilterCommand', (req: Request, res: Response) => {
-    res.send(filterValidator.validate(req.body, 'UPDATE'));
+    res.send(filterValidator.validate(req.body, 'adminUpdateFilterCommandValidator'));
 });
 router.post('/userUpdatePwdCommand', (req: Request, res: Response) => {
-    res.send(userValidator.validate(req.body, 'UPDATE'));
+    res.send(userValidator.validate(req.body, 'userUpdatePwdCommandValidator'));
 });
 router.post('/appCreatePendingUserCommand', (req: Request, res: Response) => {
-    res.send(userValidator.validateCreatePending(req.body));
+    res.send(userValidator.validate(req.body, 'appCreatePendingUserCommandValidator'));
 });
 router.post('/adminUpdateUserCommand', (req: Request, res: Response) => {
-    res.send(userValidator.validateAdminUpdate(req.body));
+    res.send(userValidator.validate(req.body, 'adminUpdateUserCommandValidator'));
 });
 router.post('/appCreateUserCommand', (req: Request, res: Response) => {
-    res.send(userValidator.validateCreateUser(req.body));
+    res.send(userValidator.validate(req.body, 'appCreateUserCommandValidator'));
 });
 router.post('/appForgetUserPasswordCommand', (req: Request, res: Response) => {
-    res.send(userValidator.validateForgetPwd(req.body));
+    res.send(userValidator.validate(req.body, 'appForgetUserPasswordCommandValidator'));
 });
 router.post('/appResetUserPasswordCommand', (req: Request, res: Response) => {
-    res.send(userValidator.validateResetPwd(req.body));
+    res.send(userValidator.validate(req.body, 'appResetUserPasswordCommandValidator'));
 });
 export const Validator: Router = router;
