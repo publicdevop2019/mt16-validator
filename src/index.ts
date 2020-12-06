@@ -1,13 +1,14 @@
 import app from "./app";
 import Eureka from 'eureka-js-client';
+const port = 4040;
 const client = new Eureka({
   instance: {
     app: 'validator',
     hostName: 'localhost',
     ipAddr: '127.0.0.1',
-    statusPageUrl: 'http://localhost:4040/info',
+    statusPageUrl: `http://localhost:${port}/info`,
     port: {
-      '$': 4040,
+      '$': port,
       '@enabled': true,
     },
     vipAddress: 'duoshu.com/validator',
@@ -24,7 +25,6 @@ const client = new Eureka({
 });
 client.logger.level('info');
 client.start();
-const port = 4040;
-app.listen(port, function() {
+app.listen(port, function () {
   console.log('Express server listening on port ' + port);
 });
