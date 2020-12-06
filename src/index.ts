@@ -1,7 +1,7 @@
 import app from "./app";
-import Eureka from 'eureka-js-client';
+import { Eureka, EurekaClient } from 'eureka-js-client';
 const port = 4040;
-const client = new Eureka({
+const config: EurekaClient.EurekaConfig = {
   instance: {
     app: 'validator',
     hostName: 'localhost',
@@ -22,8 +22,9 @@ const client = new Eureka({
     port: 8761,
     servicePath: '/eureka/apps/'
   },
-});
-client.logger.level('info');
+}
+const client = new Eureka(config);
+(client as any).logger.level('info');
 client.start();
 app.listen(port, function () {
   console.log('Express server listening on port ' + port);
